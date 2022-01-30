@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+    <meta name="author" content="Jakub Dziel"/>
+    <meta charset="UTF-8">
+    <title>Kolokwium</title>
+    <link rel="stylesheet" href="style.css"/>
+    <meta charset="UTF-8"/>
+</head>
+<body>
+<script src="script.js"></script>
+<script src="jquery-3.6.0.js"></script>
+<script>
+    //Zad 3.1
+    $(document).ready(function(){
+        var fontSize = parseInt($(".box").css("font-size"));
+        fontSize = fontSize + 5 + "px";
+        $("#zwiekszRozmiar").click(function(){
+            $(".box").css({'font-size':fontSize});
+        });
+    });
+    $(document).ready(function(){
+        var fontSize = parseInt($(".box").css("font-size"));
+        fontSize = fontSize - 5 + "px";
+        $("#zmniejszRozmiar").click(function(){
+            $(".box").css({'font-size':fontSize});
+        });
+    });
+    //Zad 3.2
+    $(document).ready(function(){
+        $("#new-element-by-id").on("click",function(){
+            let appendId = $("#choosen-id").val();
+            $("#"+appendId).append("<div class='box'>New element</div>");
+        });
+    });
+    //Zad3.3
+    $(document).ready(function(){
+        $("#rand-last-child-bg-1").on("click",function(){
+            let randomColor = Math.floor(Math.random()*16777215).toString(16);
+            console.log($("#main .box:last-child"))
+            $("#main .box").last().css({backgroundColor: "#"+randomColor})
+        });
+    });
+    $(document).ready(function(){
+        $("#rand-last-child-bg-2").on("click",function(){
+            let randomColor = Math.floor(Math.random()*16777215).toString(16);
+            console.log($("#main .box:last-child"))
+            $("#main .box").last().css({backgroundColor: "#"+randomColor})
+        });
+    });
+</script>
+
+<div id="page">
+    <div id="header">
+        <img src="https://icons.iconarchive.com/icons/paomedia/small-n-flat/128/gamepad-icon.png" >
+    </div>
+    <div id="menu">
+        <a href="">Main</a>
+        <a href="">Page 1</a>
+        <a href="">Page 2</a>
+    </div>
+    <div id="news">
+        <h3>Zadanie 1</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque egestas ut arcu nec rhoncus.
+            In iaculis metus non vehicula pharetra. Nulla ligula sapien, ornare nec tellus lacinia, varius
+            eleifend neque. Vivamus id euismod dolor. Aliquam ut facilisis mi. Curabitur in suscipit nulla.
+            In auctor dignissim lectus sed scelerisque. Morbi turpis sem, congue vel dui in, bibendum cursus
+            elit. In pretium mauris purus, eu aliquet tortor gravida in. Nullam ut neque sed urna viverra
+            viverra vitae rutrum neque. Vivamus id justo a velit fermentum aliquet.
+
+            Mauris non massa et lorem convallis laoreet. Donec vel felis a turpis luctus eleifend. Morbi ut
+            cursus lorem. Aenean congue, neque quis lacinia fermentum, nunc lectus mollis ante, eu elementum
+            lectus nunc a est. Nam nec mi at augue congue tempus at sed velit. Vestibulum dictum tempus
+            feugiat. Suspendisse eu elit eu nibh tincidunt consequat. Aliquam eget consequat orci, eu
+            auctor orci. Proin gravida metus a velit molestie facilisis.</p>
+        <h3>Zadanie 2</h3>
+        <form>
+            Pierwsze liczba: <input type="text" id="firstNumber"/><br>
+            Druga liczba: <input type="text" id="secondNumber"/><br>
+            Trzecia liczba: <input type="text" id="thirdNumber"/><br>
+            <button type="button" onclick="sum();">Sumuj</button>
+            <div id="warning">Ostrzeżenie!</div>
+            <div id="result"></div>
+        </form>
+        <h3>Zadanie 3</h3>
+        <div id="main">
+            <box id="box0">0</box>
+            <div id="box1">1</div>
+            <div class="box">klasa 1</div>
+            <div class="box ">klasa 2</div>
+            <div id="box3">3</div>
+            <button type="button" id="zwiekszRozmiar">Zwiększ rozmiar!</button></br>
+            <button type="button" id="zmniejszRozmiar">Zmniejsz rozmiar!</button>
+        </div>
+        <div class="el-by-id">
+            <textarea id='choosen-id'></textarea></br>
+            <button type="button" id="new-element-by-id">Dodaj element do wskazanego ID</button>
+        </div>
+        <div class="rand-bg">
+            <button type="button" id="rand-last-child-bg-1">Zmień tło - przycisk 1</button></br>
+            <button type="button" id="rand-last-child-bg-2">Zmień tło - przycisk 2</button>
+        </div>
+
+    </div>
+    <div id="sidebar">
+    </div>
+</div>
+</body>
+</html>
